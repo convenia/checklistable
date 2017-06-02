@@ -13,12 +13,21 @@ class ChecklistableServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        include __DIR__.'/routes.php';
+        foreach ($this->getMigrations() as $migration) {
+            $this->publishes([
+                __DIR__.'/migrations/'
+                .$migration.'.php' => database_path('migrations/'.date('Y_m_d_His', time()).'_'.$migration.'.php'),
+            ], 'migrations');
+        }
+    }
 
-        $this->publishes([
-            __DIR__ . '/migrations' => $this->app->databasePath() . '/migrations'
-        ], 'migrations');
-
+    protected function getMigrations()
+    {
+        return [
+            'create_checklists_table',
+            'create_checklist_questions_table',
+            'create_checklist_answers_table'
+        ];
     }
 
     /**

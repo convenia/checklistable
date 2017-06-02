@@ -4,7 +4,7 @@ namespace Convenia\Checklistable\Traits;
 
 use Convenia\Checklistable\Services\ChecklistableService;
 
-class ChecklistableTrait
+trait ChecklistableTrait
 {
 
     public function checklist($type)
