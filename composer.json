@@ -1,0 +1,46 @@
+{
+    "name": "convenia/checklistable",
+    "license": "MIT",
+    "description": "Make any model checklistable with answer per ID",
+    "keywords": ["checklist", "laravel", "model"],
+    "homepage": "http://github.com/convenia/checklistable",
+    "authors": [
+        {
+            "name": "Victor Ventura",
+            "email": "victor.ventura@convenia.com.br"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/convenia/checklistable/issues",
+        "source": "https://github.com/convenia/checklistable"
+    },
+    "require": {
+        "php": ">=7",
+        "illuminate/support": "~5.2|~5.3|~5.4|~5.5"
+    },
+    "require-dev": {
+        "codacy/coverage": "^1.0",
+        "friendsofphp/php-cs-fixer": "^1.13",
+        "mockery/mockery": "^0.9.4",
+        "orchestra/testbench": "~3.0",
+        "phpunit/phpunit": "^4.0|^5.0|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Convenia\\Checklistable\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Convenia\\Checklistable\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "fixer": "./vendor/bin/php-cs-fixer fix --verbose"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
