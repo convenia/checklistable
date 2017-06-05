@@ -38,19 +38,19 @@ class ChecklistableService
     }
 
 
-    public function get($companyId) : Checklist
+    public function get($ownerId) : Checklist
     {
         $this->checklist = Checklist::query()
             ->where('checklistable', $this->checklistableClass)
             ->where('type', $this->type)
-            ->where('company_id', $companyId)
+            ->where('owner_id', $ownerId)
             ->first();
 
         if ($this->checklist === null) {
             $this->checklist = Checklist::create([
                 'answerable' => $this->checklistableClass,
                 'type' => $this->type,
-                'company_id' => $companyId
+                'owner_id' => $ownerId
             ]);
         }
 
@@ -58,27 +58,27 @@ class ChecklistableService
 
     }
 
-    public function questions($companyId = null) : ChecklistableQuestionService
+    public function questions($ownerId = null) : ChecklistableQuestionService
     {
 
-        if ($this->checklist === null && $companyId === null ) {
-            throw new DefaultException('Company ID is needed');
+        if ($this->checklist === null && $ownerId === null ) {
+            throw new \Exception('owner ID is needed');
         }
 
-        $this->getChecklistIfNot($companyId);
+        $this->getChecklistIfNot($ownerId);
         return new ChecklistableQuestionService($this->checklist);
     }
 
-    public function answers($companyId) : ChecklistableAnswerService
+    public function answers($ownerId) : ChecklistableAnswerService
     {
-        $this->getChecklistIfNot($companyId);
+        $this->getChecklistIfNot($ownerId);
         return new ChecklistableAnswerService($this->checklist);
     }
 
-    protected function getChecklistIfNot($companyId)
+    protected function getChecklistIfNot($ownerId)
     {
         if ($this->checklist === null) {
-            $this->get($companyId);
+            $this->get($ownerId);
         }
     }
 
