@@ -4,6 +4,7 @@
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/caa824afe85f4658a27f0432ecfac4ad)](https://www.codacy.com/app/Convenia/checklistable_2?utm_source=github.com&utm_medium=referral&utm_content=convenia/checklistable&utm_campaign=badger)
 [![PyPI version](https://badge.fury.io/py/clairvoyant.svg)](https://badge.fury.io/py/clairvoyant)
 [![Build Status](https://travis-ci.org/anfederico/Clairvoyant.svg?branch=master)](https://travis-ci.org/anfederico/Clairvoyant)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
