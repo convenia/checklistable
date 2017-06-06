@@ -1,7 +1,7 @@
 <h1 align="center">
 
 ![checklistable logo](https://raw.githubusercontent.com/convenia/checklistable/master/checklist.jpg)
-<br>
+
 # CHECKLISTABLE 
 
 </h1>
