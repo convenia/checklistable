@@ -1,11 +1,9 @@
 <h1 align="center">
 
 ![checklistable logo](https://raw.githubusercontent.com/convenia/checklistable/master/checklist.jpg)
-</h1>
-<h1 align="center">
+
 
 # CHECKLISTABLE 
-
 </h1>
 
 
