@@ -41,7 +41,7 @@ class TestCase extends Orchestra
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders()
     {
         return [
             ChecklistableServiceProvider::class,

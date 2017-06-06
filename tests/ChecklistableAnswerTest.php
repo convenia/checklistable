@@ -7,7 +7,7 @@ class ChecklistableAnswerTest extends TestCase
     public function test_start()
     {
 
-        $test = $this
+        $this
             ->checklistable
             ->questions()
             ->fill([
