@@ -1,4 +1,4 @@
-<p align="center"><img width=12.5% src="https://github.com/convenia/checklistable/blob/master/checklist.jpg"></p>
+<p align="center"><img width=12.5% src="https://raw.githubusercontent.com/convenia/checklistable/master/checklist.jpg"></p>
 
 # CHECKLISTABLE
 
