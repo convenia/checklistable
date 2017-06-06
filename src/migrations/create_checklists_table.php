@@ -17,7 +17,7 @@ class CreateChecklistsTable extends Migration
             $table->increments('id');
             $table->integer('owner_id');
             $table->string('type');
-            $table->string('answerable');
+            $table->string('checklistable');
             $table->timestamps();
         });
     }

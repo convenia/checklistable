@@ -56,7 +56,7 @@ class ChecklistableService
 
         if ($this->checklist === null) {
             $this->checklist = Checklist::create([
-                'answerable' => $this->checklistableClass,
+                'checklistable' => $this->checklistableClass,
                 'type' => $this->type,
                 'owner_id' => $this->ownerId
             ]);

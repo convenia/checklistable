@@ -18,7 +18,7 @@ class CreateChecklistAnswersTable extends Migration
             $table->integer('checklist_id');
             $table->integer('question');
             $table->boolean('answer')->default(false);
-            $table->integer('answerable_id');
+            $table->integer('checklistable_id');
             $table->timestamps();
         });
     }

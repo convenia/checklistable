@@ -27,13 +27,13 @@ class ChecklistableAnswerService
      * @param $answarableId
      * @return Collection
      */
-   public function start($answarableId) : Collection
+   public function start($checklistableId) : Collection
    {
        $checkQuestion = new ChecklistableQuestionService($this->checklist);
        $questions = $checkQuestion->get();
 
-       $questions->transform(function($item) use($answarableId) {
-           $item['answerable_id'] = $answarableId;
+       $questions->transform(function($item) use($checklistableId) {
+           $item['checklistable_id'] = $checklistableId;
            return $item;
        });
 
@@ -42,22 +42,22 @@ class ChecklistableAnswerService
        return $this->get(1);
    }
 
-   public function answer($answarableId, $answerId, $answer = true) : bool
+   public function answer($checklistableId, $answerId, $answer = true) : bool
    {
        $answerMoldel = ChecklistAnswer::findOrFail($answerId);
        $answerMoldel->answer = $answer;
        return $answerMoldel->save();
    }
 
-    public function get($answarableId) : Collection
+    public function get($checklistableId) : Collection
     {
         $answers = ChecklistAnswer::query()
-            ->where('answerable_id', $answarableId)
+            ->where('checklistable_id', $checklistableId)
             ->where('checklist_id', $this->checklist->id)
             ->get();
 
         if ($answers->count() == 0) {
-            return $this->start($answarableId);
+            return $this->start($checklistableId);
         }
 
         return $answers;
