@@ -16,7 +16,7 @@ class CreateChecklistAnswersTable extends Migration
         Schema::create('checklist_answers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('checklist_id');
-            $table->integer('question');
+            $table->string('question');
             $table->boolean('answer')->default(false);
             $table->integer('checklistable_id');
             $table->timestamps();

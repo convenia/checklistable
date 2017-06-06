@@ -24,7 +24,7 @@ class ChecklistableAnswerService
     }
 
     /**
-     * @param $answarableId
+     * @param $checklistableId
      * @return Collection
      */
    public function start($checklistableId) : Collection
@@ -34,6 +34,7 @@ class ChecklistableAnswerService
 
        $questions->transform(function($item) use($checklistableId) {
            $item['checklistable_id'] = $checklistableId;
+           unset($item['id']);
            return $item;
        });
 
