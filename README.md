@@ -13,8 +13,10 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/caa824afe85f4658a27f0432ecfac4ad)](https://www.codacy.com/app/Convenia/checklistable_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=convenia/checklistable&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/caa824afe85f4658a27f0432ecfac4ad)](https://www.codacy.com/app/Convenia/checklistable_2?utm_source=github.com&utm_medium=referral&utm_content=convenia/checklistable&utm_campaign=Badge_Coverage)
+[![GitHub forks](https://img.shields.io/github/forks/convenia/checklistable.svg)](https://github.com/convenia/checklistable/network)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
-[![GitHub Issues](https://img.shields.io/github/issues/convenia/checklistable.svg)](https://github.com/anfederico/Clairvoyant/issues)
+[![GitHub Issues](https://img.shields.io/github/issues/convenia/checklistable.svg)](https://github.com/convenia/checklistable/issues)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
 [![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
 

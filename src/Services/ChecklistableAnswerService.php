@@ -58,7 +58,7 @@ class ChecklistableAnswerService
    {
        $answerMoldel = ChecklistAnswer::findOrFail($answerId);
 
-       if ($answerMoldel->checklistable_id !== $checklistableId) {
+       if ($answerMoldel->checklistable_id != $checklistableId) {
            throw new \Exception('invalid data. ChecklistableId and AnswerId not the same owner.');
        }
 
