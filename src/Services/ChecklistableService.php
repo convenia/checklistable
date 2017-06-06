@@ -45,6 +45,7 @@ class ChecklistableService
     }
 
 
+
     public function get() : Checklist
     {
         $this->checklist = Checklist::query()
@@ -81,6 +82,7 @@ class ChecklistableService
     {
         if ($this->checklist === null) {
             $this->get();
+
         }
     }
 

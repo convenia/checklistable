@@ -9,7 +9,7 @@ class ChecklistableAnswerTest extends TestCase
 
         $test = $this
             ->checklistable
-            ->questions(1)
+            ->questions()
             ->fill([
                 ['question' => 'aassdd1'],
                 ['question' => 'aassdd2'],
@@ -19,7 +19,7 @@ class ChecklistableAnswerTest extends TestCase
 
         $response = $this
             ->checklistable
-            ->answers(1)
+            ->answers()
             ->start(1);
 
 
@@ -30,7 +30,7 @@ class ChecklistableAnswerTest extends TestCase
     {
         $test = $this
             ->checklistable
-            ->questions(1)
+            ->questions()
             ->fill([
                 ['question' => 'aassdd1'],
                 ['question' => 'aassdd2'],
@@ -40,12 +40,12 @@ class ChecklistableAnswerTest extends TestCase
 
         $response = $this
             ->checklistable
-            ->answers(1)
+            ->answers()
             ->start(1);
 
         $response = $this
             ->checklistable
-            ->answers(1)
+            ->answers()
             ->answer(1, 1, true);
 
         $this->assertEquals(true, $response);
@@ -55,7 +55,7 @@ class ChecklistableAnswerTest extends TestCase
     {
         $test = $this
             ->checklistable
-            ->questions(1)
+            ->questions()
             ->fill([
                 ['question' => 'aassdd1'],
                 ['question' => 'aassdd2'],
@@ -65,7 +65,7 @@ class ChecklistableAnswerTest extends TestCase
 
         $response = $this
             ->checklistable
-            ->answers(1)
+            ->answers()
             ->get(1);
 
         $this->assertInstanceOf(\Illuminate\Support\Collection::class, $response);

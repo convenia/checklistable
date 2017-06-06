@@ -20,7 +20,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         $this->setUpDatabase();
-        $this->checklistable = new ChecklistableService('Model\\Class', 'default');
+        $this->checklistable = new ChecklistableService('Model\\Class', 'default', 1);
     }
 
 
