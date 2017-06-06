@@ -7,7 +7,7 @@ use \Illuminate\Database\Eloquent\Model;
 class Checklist extends Model
 {
 
-    protected $fillable = ['owner_id', 'type', 'checklistable'];
+    protected $fillable = ['company_id', 'type', 'answerable'];
 
 
 }
