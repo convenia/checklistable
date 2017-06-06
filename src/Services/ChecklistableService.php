@@ -26,31 +26,38 @@ class ChecklistableService
     protected $checklistableClass;
 
     /**
+     * @var
+     */
+    protected $ownerId;
+
+    /**
      * ChecklistableService constructor.
-     * @param $checklistableClass String [Model Class to associate checklist]
-     * @param $type [type or name]
+     * @param $checklistableClass
+     * @param $type
+     * @param $ownerId
      */
 
-    function __construct($checklistableClass, $type)
+    function __construct($checklistableClass, $type, $ownerId)
     {
         $this->type = $type;
         $this->checklistableClass = $checklistableClass;
+        $this->ownerId = $ownerId;
     }
 
 
-    public function get($companyId) : Checklist
+    public function get() : Checklist
     {
         $this->checklist = Checklist::query()
             ->where('checklistable', $this->checklistableClass)
             ->where('type', $this->type)
-            ->where('company_id', $companyId)
+            ->where('company_id', $this->ownerId)
             ->first();
 
         if ($this->checklist === null) {
             $this->checklist = Checklist::create([
                 'answerable' => $this->checklistableClass,
                 'type' => $this->type,
-                'company_id' => $companyId
+                'company_id' => $this->ownerId
             ]);
         }
 
@@ -58,27 +65,22 @@ class ChecklistableService
 
     }
 
-    public function questions($companyId = null) : ChecklistableQuestionService
+    public function questions() : ChecklistableQuestionService
     {
-
-        if ($this->checklist === null && $companyId === null ) {
-            throw new DefaultException('Company ID is needed');
-        }
-
-        $this->getChecklistIfNot($companyId);
+        $this->getChecklistIfNot();
         return new ChecklistableQuestionService($this->checklist);
     }
 
-    public function answers($companyId) : ChecklistableAnswerService
+    public function answers() : ChecklistableAnswerService
     {
-        $this->getChecklistIfNot($companyId);
+        $this->getChecklistIfNot();
         return new ChecklistableAnswerService($this->checklist);
     }
 
-    protected function getChecklistIfNot($companyId)
+    protected function getChecklistIfNot()
     {
         if ($this->checklist === null) {
-            $this->get($companyId);
+            $this->get();
         }
     }
 
