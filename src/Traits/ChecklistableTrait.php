@@ -7,8 +7,8 @@ use Convenia\Checklistable\Services\ChecklistableService;
 trait ChecklistableTrait
 {
 
-    public function checklist($type, $ownerId)
+    static function checklist($type, $ownerId)
     {
-        return new ChecklistableService(get_class($this), $type, $ownerId);
+        return new ChecklistableService(self::class, $type, $ownerId);
     }
 }
