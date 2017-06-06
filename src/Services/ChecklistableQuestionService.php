@@ -58,7 +58,7 @@ class ChecklistableQuestionService
 
     public function delete($questionId) : bool
     {
-        return ChecklistQuestion::query()->delete($questionId);
+        return ChecklistQuestion::findOrFail($questionId)->delete();
     }
 
 
