@@ -21,6 +21,9 @@ class ChecklistableServiceProvider extends ServiceProvider
         }
     }
 
+    /**
+     * @return array
+     */
     protected function getMigrations()
     {
         return [

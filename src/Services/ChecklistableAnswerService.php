@@ -6,6 +6,10 @@ use Convenia\Checklistable\Models\Checklist;
 use Convenia\Checklistable\Models\ChecklistAnswer;
 use Illuminate\Support\Collection;
 
+/**
+ * Class ChecklistableAnswerService
+ * @package Convenia\Checklistable\Services
+ */
 class ChecklistableAnswerService
 {
 
@@ -43,6 +47,13 @@ class ChecklistableAnswerService
        return $this->get(1);
    }
 
+    /**
+     * @param $checklistableId
+     * @param $answerId
+     * @param bool $answer
+     * @return bool
+     * @throws \Exception
+     */
    public function answer($checklistableId, $answerId, $answer = true) : bool
    {
        $answerMoldel = ChecklistAnswer::findOrFail($answerId);
@@ -55,6 +66,10 @@ class ChecklistableAnswerService
        return $answerMoldel->save();
    }
 
+    /**
+     * @param $checklistableId
+     * @return Collection
+     */
     public function get($checklistableId) : Collection
     {
         $answers = ChecklistAnswer::query()

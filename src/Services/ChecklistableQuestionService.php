@@ -6,18 +6,35 @@ use Convenia\Checklistable\Models\ChecklistQuestion;
 
 use Illuminate\Support\Collection;
 
+/**
+ * Class ChecklistableQuestionService
+ * @package Convenia\Checklistable\Services
+ */
 class ChecklistableQuestionService
 {
 
+    /**
+     * @var
+     */
     private $checklist;
 
+    /**
+     * @var
+     */
     public $questions;
 
+    /**
+     * ChecklistableQuestionService constructor.
+     * @param $checklist
+     */
     public function __construct($checklist)
     {
         $this->checklist = $checklist;
     }
 
+    /**
+     * @return Collection
+     */
     public function get() : Collection
     {
         $this->questions = ChecklistQuestion::query()
@@ -27,7 +44,10 @@ class ChecklistableQuestionService
         return $this->questions;
     }
 
-
+    /**
+     * @param array $questions
+     * @return Collection
+     */
     public function fill(Array $questions) : Collection
     {
         $oldQuestions = $this->get();
@@ -47,6 +67,10 @@ class ChecklistableQuestionService
         return $this->get();
     }
 
+    /**
+     * @param array $question
+     * @return Collection
+     */
     public function add(Array $question) : Collection
     {
         $question['checklist_id'] = $this->checklist->id;
@@ -56,6 +80,10 @@ class ChecklistableQuestionService
         return $this->get();
     }
 
+    /**
+     * @param $questionId
+     * @return bool
+     */
     public function delete($questionId) : bool
     {
         return ChecklistQuestion::findOrFail($questionId)->delete();
