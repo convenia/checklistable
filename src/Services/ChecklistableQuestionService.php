@@ -4,6 +4,8 @@ namespace Convenia\Checklistable\Services;
 
 use Convenia\Checklistable\Models\ChecklistQuestion;
 
+use Illuminate\Support\Collection;
+
 class ChecklistableQuestionService
 {
 
@@ -16,7 +18,7 @@ class ChecklistableQuestionService
         $this->checklist = $checklist;
     }
 
-    public function get()
+    public function get() : Collection
     {
         $this->questions = ChecklistQuestion::query()
             ->where('checklist_id', $this->checklist->id)
@@ -26,7 +28,7 @@ class ChecklistableQuestionService
     }
 
 
-    public function fill(Array $questions)
+    public function fill(Array $questions) : Collection
     {
         $oldQuestions = $this->get();
 
@@ -45,7 +47,7 @@ class ChecklistableQuestionService
         return $this->get();
     }
 
-    public function add(Array $question)
+    public function add(Array $question) : Collection
     {
         $question['checklist_id'] = $this->checklist->id;
 
@@ -54,7 +56,7 @@ class ChecklistableQuestionService
         return $this->get();
     }
 
-    public function delete($questionId)
+    public function delete($questionId) : bool
     {
         return ChecklistQuestion::query()->delete($questionId);
     }

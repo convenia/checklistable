@@ -50,14 +50,14 @@ class ChecklistableService
         $this->checklist = Checklist::query()
             ->where('checklistable', $this->checklistableClass)
             ->where('type', $this->type)
-            ->where('company_id', $this->ownerId)
+            ->where('owner_id', $this->ownerId)
             ->first();
 
         if ($this->checklist === null) {
             $this->checklist = Checklist::create([
                 'answerable' => $this->checklistableClass,
                 'type' => $this->type,
-                'company_id' => $this->ownerId
+                'owner_id' => $this->ownerId
             ]);
         }
 
