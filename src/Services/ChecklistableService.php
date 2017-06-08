@@ -7,6 +7,10 @@ use Convenia\Checklistable\Models\Checklist;
 use Convenia\Checklistable\Models\ChecklistQuestion;
 use Illuminate\Support\Collection;
 
+/**
+ * Class ChecklistableService
+ * @package Convenia\Checklistable\Services
+ */
 class ChecklistableService
 {
 
@@ -44,8 +48,9 @@ class ChecklistableService
         $this->ownerId = $ownerId;
     }
 
-
-
+    /**
+     * @return Checklist
+     */
     public function get() : Checklist
     {
         $this->checklist = Checklist::query()
@@ -66,18 +71,27 @@ class ChecklistableService
 
     }
 
+    /**
+     * @return ChecklistableQuestionService
+     */
     public function questions() : ChecklistableQuestionService
     {
         $this->getChecklistIfNot();
         return new ChecklistableQuestionService($this->checklist);
     }
 
+    /**
+     * @return ChecklistableAnswerService
+     */
     public function answers() : ChecklistableAnswerService
     {
         $this->getChecklistIfNot();
         return new ChecklistableAnswerService($this->checklist);
     }
 
+    /**
+     * start checklist if do not have
+     */
     protected function getChecklistIfNot()
     {
         if ($this->checklist === null) {

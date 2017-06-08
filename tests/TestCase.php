@@ -26,9 +26,9 @@ class TestCase extends Orchestra
 
     protected function setUpDatabase()
     {
-        include_once __DIR__.'/../src/migrations/2017_05_30_160133_create_checklists_table.php';
-        include_once __DIR__.'/../src/migrations/2017_05_30_160212_create_checklist_questions_table.php';
-        include_once __DIR__.'/../src/migrations/2017_05_30_160235_create_checklist_answers_table.php';
+        include_once __DIR__.'/../src/migrations/create_checklists_table.php';
+        include_once __DIR__.'/../src/migrations/create_checklist_questions_table.php';
+        include_once __DIR__.'/../src/migrations/create_checklist_answers_table.php';
 
         (new \CreateChecklistsTable())->up();
         (new \CreateChecklistQuestionsTable())->up();
@@ -37,11 +37,9 @@ class TestCase extends Orchestra
     }
 
     /**
-     * @param \Illuminate\Foundation\Application $app
-     *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders()
     {
         return [
             ChecklistableServiceProvider::class,
