@@ -3,17 +3,17 @@ php:
   - '7.0'
   - '7.1'
 
-  matrix:
-    fast_finish: true
+matrix:
+  fast_finish: true
 
-  before_script:
-      - travis_retry composer self-update
-      - travis_retry composer global require hirak/prestissimo
-      - travis_retry composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+before_script:
+    - travis_retry composer self-update
+    - travis_retry composer global require hirak/prestissimo
+    - travis_retry composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
 
-  notifications:
-      script:
-          - "phpunit -v --coverage-text --colors=never --stderr"
+notifications:
+    script:
+        - "phpunit -v --coverage-text --colors=never --stderr"
 
-  after_success:
-      - php vendor/bin/codacycoverage clover build/logs/clover.xml
+after_success:
+    - php vendor/bin/codacycoverage clover build/logs/clover.xml
