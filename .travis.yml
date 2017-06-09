@@ -6,6 +6,10 @@ php:
 matrix:
   fast_finish: true
 
+before_script:
+  - composer self-update
+  - composer install --no-interaction
+
 notifications:
     script:
         - "phpunit -v --coverage-text --colors=never --stderr"
