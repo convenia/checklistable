@@ -17,3 +17,7 @@ notifications:
 
 after_success:
     - php vendor/bin/codacycoverage clover build/logs/clover.xml
+
+addons:
+    code_climate:
+        repo_token: 75882af0fd377ca5d04aa189c62561cb7e68b46463cac7e48d3210baebd9c374
