@@ -44,7 +44,7 @@ class ChecklistableAnswerService
 
        ChecklistAnswer::insert($questions->toArray());
 
-       return $this->get(1);
+       return $this->get($checklistableId);
    }
 
     /**
