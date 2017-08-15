@@ -19,8 +19,7 @@ CHECKLISTABLE
 
 ## Basic Overview
 
-Add checklist in your project associated a any model in yout project
-
+Add checklist in your project associated any model in your project
 
 ## Install
 ```bash
