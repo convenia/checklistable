@@ -7,8 +7,8 @@ matrix:
   fast_finish: true
 
 before_script:
-  - composer self-update
-  - composer install --no-interaction
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
 
 notifications:
     script:
