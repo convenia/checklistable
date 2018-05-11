@@ -30,11 +30,16 @@ class ChecklistableAnswerService
     /**
      * @param $checklistableId
      * @return Collection
+     * @throws \Exception
      */
-   public function start($checklistableId) : Collection
+    public function start($checklistableId) : Collection
    {
        $checkQuestion = new ChecklistableQuestionService($this->checklist);
        $questions = $checkQuestion->get();
+
+       if ($questions->count() == 0) {
+           return collect([]);
+       }
 
        $questions->transform(function($item) use($checklistableId) {
            $item['checklistable_id'] = $checklistableId;
